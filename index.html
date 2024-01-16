@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Wiki</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9e84cd97-8367-4015-9b47-a68a2b065c28" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/book_lightgray.svg"/></div><h1 class="page-title">Wiki</h1><p class="page-description"></p></header><div class="page-body"><p id="cc10b5f0-c1fa-4ad6-9944-7740201ef28d" class="">
+</p><p id="a27a0b3f-4a68-4411-9230-578c7a75763a" class="">
+</p><figure id="403c15ac-b341-423b-842a-d0b524662518" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/RDS%20403c15acb341423b842ad0b524662518.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/RDS%20403c15acb341423b842ad0b524662518/Arch_Amazon-RDS_645x.png"/>RDS</a></figure><figure id="0291f4c9-0402-4755-bfe7-d3a281c87b48" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Aurora%200291f4c904024755bfe7d3a281c87b48.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Aurora%200291f4c904024755bfe7d3a281c87b48/Arch_Amazon-Aurora_645x.png"/>Aurora</a></figure><figure id="21c4bf09-72e5-4c3c-9b84-24187d8bb7a7" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/ElastiCache%2021c4bf0972e54c3c9b8424187d8bb7a7.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/ElastiCache%2021c4bf0972e54c3c9b8424187d8bb7a7/Arch_Amazon-ElastiCache_645x.png"/>ElastiCache</a></figure><figure id="fd2f2300-82fe-48fd-bd1a-5271b513f9b4" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/DynamoDB%20fd2f230082fe48fdbd1a5271b513f9b4.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/DynamoDB%20fd2f230082fe48fdbd1a5271b513f9b4/Arch_Amazon-DynamoDB_645x.png"/>DynamoDB</a></figure><figure id="d0d9e2b4-4b2f-42d0-9162-6ebca4478eb3" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/DocumentDB%20d0d9e2b44b2f42d091626ebca4478eb3.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/DocumentDB%20d0d9e2b44b2f42d091626ebca4478eb3/Arch_Amazon-DocumentDB_645x.png"/>DocumentDB</a></figure><figure id="0d096f24-2b30-4187-9d38-b78edbf0019e" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Neptune%200d096f242b3041879d38b78edbf0019e.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Neptune%200d096f242b3041879d38b78edbf0019e/Arch_Amazon-Neptune_645x.png"/>Neptune</a></figure><figure id="e1e3431a-0fe5-4f6f-8ba7-8121a5a55064" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Redshift%20e1e3431a0fe54f6f8ba78121a5a55064.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Redshift%20e1e3431a0fe54f6f8ba78121a5a55064/Arch_Amazon-Redshift_645x.png"/>Redshift</a></figure><figure id="b7d6cb51-04b1-4962-8868-891e92367886" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/EMR%20Elastic%20Map%20Reduce%20b7d6cb5104b149628868891e92367886.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/EMR%20Elastic%20Map%20Reduce%20b7d6cb5104b149628868891e92367886/Arch_Amazon-EMR_645x.png"/>EMR | Elastic Map Reduce</a></figure><figure id="fa9bbed7-343a-42a1-aebb-b15f12afae50" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Athena%20fa9bbed7343a42a1aebbb15f12afae50.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Athena%20fa9bbed7343a42a1aebbb15f12afae50/Arch_Amazon-Athena_645x.png"/>Athena</a></figure><figure id="6939a7ce-648b-4223-a06e-6fbb6526eb2e" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/QuickSight%206939a7ce648b4223a06e6fbb6526eb2e.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/QuickSight%206939a7ce648b4223a06e6fbb6526eb2e/Arch_Amazon-QuickSight_645x.png"/>QuickSight</a></figure><figure id="b4a56a62-d396-4f2a-b6d3-54ca934c45a4" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Glue%20b4a56a62d3964f2ab6d354ca934c45a4.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Glue%20b4a56a62d3964f2ab6d354ca934c45a4/Arch_AWS-Glue_645x.png"/>Glue</a></figure><figure id="14645d96-6435-4b6c-943d-ae09326de969" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/QLDB%20Quantum%20Ledger%20DB%2014645d9664354b6c943dae09326de969.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/QLDB%20Quantum%20Ledger%20DB%2014645d9664354b6c943dae09326de969/Arch_Amazon-Quantum-Ledger-Database_645x.png"/>QLDB | Quantum Ledger DB</a></figure><figure id="9f4aac9f-abc3-47a6-8211-b23990335c2e" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Managed%20Blockchain%209f4aac9fabc347a68211b23990335c2e.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Managed%20Blockchain%209f4aac9fabc347a68211b23990335c2e/Arch_Amazon-Managed-Blockchain_645x.png"/>Managed Blockchain</a></figure><figure id="57ffdb87-8fd0-4ea8-af25-128a70482e92" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/DMS%20DB%20Migration%20Service%2057ffdb878fd04ea8af25128a70482e92.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/DMS%20DB%20Migration%20Service%2057ffdb878fd04ea8af25128a70482e92/Arch_AWS-Database-Migration-Service_645x.png"/>DMS | DB Migration Service</a></figure><figure id="77c1e13b-1838-413f-bbd0-aea00d6bc2bd" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CloudFormation%2077c1e13b1838413fbbd0aea00d6bc2bd.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CloudFormation%2077c1e13b1838413fbbd0aea00d6bc2bd/Arch_AWS-CloudFormation_645x.png"/>CloudFormation</a></figure><figure id="4339dd44-8fb8-4ec6-91a3-b5679bcdfa63" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CDK%204339dd448fb84ec691a3b5679bcdfa63.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CDK%204339dd448fb84ec691a3b5679bcdfa63/Arch_AWS-Cloud-Development-Kit_645x.png"/>CDK</a></figure><figure id="33fe267b-e809-4885-9f7a-b712780b96ca" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Elastic%20Beanstalk%2033fe267be80948859f7ab712780b96ca.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Elastic%20Beanstalk%2033fe267be80948859f7ab712780b96ca/Arch_AWS-Elastic-Beanstalk_645x.png"/>Elastic Beanstalk</a></figure><figure id="e011a18e-0d9b-4360-a572-aced9f552cd0" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodeDeploy%20e011a18e0d9b4360a572aced9f552cd0.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodeDeploy%20e011a18e0d9b4360a572aced9f552cd0/Arch_AWS-CodeDeploy_645x.png"/>CodeDeploy</a></figure><figure id="e5edf3d0-e982-4b58-8430-219590148a29" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodeCommit%20e5edf3d0e9824b588430219590148a29.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodeCommit%20e5edf3d0e9824b588430219590148a29/Arch_AWS-CodeCommit_645x.png"/>CodeCommit</a></figure><figure id="e480eece-77e2-4b38-8d17-94eb7de2e41b" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodePipeline%20e480eece77e24b388d1794eb7de2e41b.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodePipeline%20e480eece77e24b388d1794eb7de2e41b/Arch_AWS-CodePipeline_645x.png"/>CodePipeline</a></figure><figure id="0d8f1079-16da-43f7-8946-b50d70907cd5" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodeArtifact%200d8f107916da43f78946b50d70907cd5.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodeArtifact%200d8f107916da43f78946b50d70907cd5/Arch_AWS-CodeArtifact_645x.png"/>CodeArtifact</a></figure><figure id="f71dea58-a0e6-4a4a-a80d-1a56d046e06a" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodeStar%20f71dea58a0e64a4aa80d1a56d046e06a.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodeStar%20f71dea58a0e64a4aa80d1a56d046e06a/Arch_AWS-CodeStar_645x.png"/>CodeStar</a></figure><figure id="07ee26e1-7bc8-4832-a4f6-093de19ea61b" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Cloud9%2007ee26e17bc84832a4f6093de19ea61b.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Cloud9%2007ee26e17bc84832a4f6093de19ea61b/Arch_AWS-Cloud9_645x.png"/>Cloud9</a></figure><figure id="90611b63-5125-41f7-acff-c6419b20cd7f" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Systems%20Manager%20SSM%2090611b63512541f7acffc6419b20cd7f.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Systems%20Manager%20SSM%2090611b63512541f7acffc6419b20cd7f/Arch_AWS-Systems-Manager_645x.png"/>Systems Manager | SSM</a></figure><figure id="302ca043-dd8f-4f37-8f85-6082df281860" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/EBS%20Elastic%20Block%20Store%20302ca043dd8f4f378f856082df281860.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/EBS%20Elastic%20Block%20Store%20302ca043dd8f4f378f856082df281860/Arch_Amazon-Elastic-Block-Store_645x.png"/>EBS | Elastic Block Store</a></figure><figure id="10d4a998-ec43-4125-a40a-825062ac5b9b" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/AMI%20Amazon%20Machine%20Instance%2010d4a998ec434125a40a825062ac5b9b.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/AMI%20Amazon%20Machine%20Instance%2010d4a998ec434125a40a825062ac5b9b/Res_Amazon-EC2_AMI_48.png"/>AMI | Amazon Machine Instance</a></figure><figure id="c532d977-b552-4a2f-bf07-b665be129615" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Image%20Builder%20c532d977b5524a2fbf07b665be129615.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Image%20Builder%20c532d977b5524a2fbf07b665be129615/Arch_Amazon-EC2-Image-Builder_645x.png"/>Image Builder</a></figure><figure id="af28f2fb-d427-46f4-b56a-51037a6929e7" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Instance%20Store%20af28f2fbd42746f4b56a51037a6929e7.html">Instance Store</a></figure><figure id="cc8700de-3479-4aeb-96d3-da2b019c2b55" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/EFS%20Elastic%20File%20System%20cc8700de34794aeb96d3da2b019c2b55.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/EFS%20Elastic%20File%20System%20cc8700de34794aeb96d3da2b019c2b55/Arch_Amazon-EFS_645x.png"/>EFS | Elastic File System</a></figure><figure id="7259aeb8-0ae0-4538-abc6-a5faf0867499" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/FSx%207259aeb80ae04538abc6a5faf0867499.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/FSx%207259aeb80ae04538abc6a5faf0867499/Arch_Amazon-FSx_645x.png"/>FSx</a></figure><figure id="0ba43ec7-df78-41c1-bba8-ef6f7225a3fe" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/ELB%20Elastic%20Load%20Balancing%200ba43ec7df7841c1bba8ef6f7225a3fe.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/ELB%20Elastic%20Load%20Balancing%200ba43ec7df7841c1bba8ef6f7225a3fe/Arch_Elastic-Load-Balancing_645x.png"/>ELB | Elastic Load Balancing</a></figure><figure id="a6e9a233-e4af-4bb5-b678-27e2c63dfaea" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/ASG%20Auto%20Scaling%20Groups%20a6e9a233e4af4bb5b67827e2c63dfaea.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/ASG%20Auto%20Scaling%20Groups%20a6e9a233e4af4bb5b67827e2c63dfaea/Arch_Amazon-EC2-Auto-Scaling_645x.png"/>ASG | Auto Scaling Groups</a></figure><figure id="4ed2e406-2995-4641-a672-788d3364256d" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Route%2053%204ed2e40629954641a672788d3364256d.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Route%2053%204ed2e40629954641a672788d3364256d/Arch_Amazon-Route-53_645x.png"/>Route 53</a></figure><figure id="e0a66a8a-b0db-4aea-b13a-446672306de5" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CloudFront%20e0a66a8ab0db4aeab13a446672306de5.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CloudFront%20e0a66a8ab0db4aeab13a446672306de5/Arch_Amazon-CloudFront_645x.png"/>CloudFront</a></figure><figure id="cc3db428-6df3-4504-a9d8-9dddf9f1ab78" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/S3%20cc3db4286df34504a9d89dddf9f1ab78.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/S3%20cc3db4286df34504a9d89dddf9f1ab78/Arch_Amazon-S3-on-Outposts_645x.png"/>S3</a></figure><figure id="e39c7e7b-a0d5-4cb4-8d34-35bc2d348c25" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Global%20Accelerator%20e39c7e7ba0d54cb48d3435bc2d348c25.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Global%20Accelerator%20e39c7e7ba0d54cb48d3435bc2d348c25/Arch_AWS-Global-Accelerator_645x.png"/>Global Accelerator</a></figure><figure id="36899244-31ae-4ff3-90b9-863c87f77721" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Outposts%203689924431ae4ff390b9863c87f77721.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Outposts%203689924431ae4ff390b9863c87f77721/Arch_AWS-Outposts-rack_645x.png"/>Outposts</a></figure><figure id="998b5eb6-faee-46f4-8e6e-0ad54ac3a96e" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/WaveLength%20998b5eb6faee46f48e6e0ad54ac3a96e.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/WaveLength%20998b5eb6faee46f48e6e0ad54ac3a96e/Arch_AWS-Wavelength_645x.png"/>WaveLength</a></figure><figure id="c48c8ba7-0ef5-4186-b0a2-27e3cf2a27ba" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Local%20Zones%20c48c8ba70ef54186b0a227e3cf2a27ba.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Local%20Zones%20c48c8ba70ef54186b0a227e3cf2a27ba/Arch_AWS-Local-Zones_645x.png"/>Local Zones</a></figure><figure id="332a18f9-3dac-43f5-a8f8-8618b5baaf93" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/IAM%20332a18f93dac43f5a8f88618b5baaf93.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/IAM%20332a18f93dac43f5a8f88618b5baaf93/Arch_AWS-IAM-Identity-Center_645x.png"/>IAM</a></figure><figure id="ce2ba482-8114-421f-842f-789f140c2dd3" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/ECS%20Elastic%20Container%20Service%20ce2ba4828114421f842f789f140c2dd3.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/ECS%20Elastic%20Container%20Service%20ce2ba4828114421f842f789f140c2dd3/Arch_Amazon-ECS-Anywhere_645x.png"/>ECS | Elastic Container Service</a></figure><figure id="0c23f535-5047-4400-bf82-39c0408e53ff" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Fargate%200c23f53550474400bf8239c0408e53ff.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Fargate%200c23f53550474400bf8239c0408e53ff/Arch_AWS-Fargate_645x.png"/>Fargate</a></figure><figure id="005c25e3-f3d0-4ffe-90c5-7d045e2d2722" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/ECR%20Elastic%20Container%20Registry%20005c25e3f3d04ffe90c57d045e2d2722.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/ECR%20Elastic%20Container%20Registry%20005c25e3f3d04ffe90c57d045e2d2722/Arch_Amazon-Elastic-Container-Registry_645x.png"/>ECR | Elastic Container Registry</a></figure><figure id="5586b9bd-0735-49ca-b367-723e69e19cbe" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Lambda%205586b9bd073549cab367723e69e19cbe.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Lambda%205586b9bd073549cab367723e69e19cbe/Arch_AWS-Lambda_645x.png"/>Lambda</a></figure><figure id="e55329f2-b700-478b-93ab-7ad05c78978f" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/API%20Gateway%20e55329f2b700478b93ab7ad05c78978f.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/API%20Gateway%20e55329f2b700478b93ab7ad05c78978f/Arch_Amazon-API-Gateway_645x.png"/>API Gateway</a></figure><figure id="95a7df48-e268-49cb-89b0-c7410015c9ad" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Batch%2095a7df48e26849cb89b0c7410015c9ad.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Batch%2095a7df48e26849cb89b0c7410015c9ad/Arch_AWS-Batch_645x.png"/>Batch</a></figure><figure id="5a1415e8-bf78-4672-83ab-8f3569712252" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Lightsail%205a1415e8bf78467283ab8f3569712252.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Lightsail%205a1415e8bf78467283ab8f3569712252/Arch_Amazon-Lightsail_645x.png"/>Lightsail</a></figure><figure id="1b712818-551d-4228-9307-b5cca0680a03" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Snow%20Family%201b712818551d42289307b5cca0680a03.html"><span class="icon">❄️</span>Snow Family</a></figure><figure id="485b6b28-8ca5-43f2-9f33-c4769c0d21de" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Storage%20Gateway%20485b6b288ca543f29f33c4769c0d21de.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Storage%20Gateway%20485b6b288ca543f29f33c4769c0d21de/Arch_AWS-Storage-Gateway_645x.png"/>Storage Gateway</a></figure><figure id="73f318b1-d27d-4fe6-94d0-44e4697f71a9" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/EC2%2073f318b1d27d4fe694d044e4697f71a9.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/EC2%2073f318b1d27d4fe694d044e4697f71a9/Arch_Amazon-EC2_645x.png"/>EC2</a></figure><figure id="3456332f-d392-450c-b449-41c1bec3ca08" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/SQS%20Simple%20Queue%20Service%203456332fd392450cb44941c1bec3ca08.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/SQS%20Simple%20Queue%20Service%203456332fd392450cb44941c1bec3ca08/Arch_Amazon-Simple-Queue-Service_645x.png"/>SQS | Simple Queue Service</a></figure><figure id="069cbb9b-2adc-46f8-9658-4112b674aeec" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/SNS%20069cbb9b2adc46f896584112b674aeec.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/SNS%20069cbb9b2adc46f896584112b674aeec/Arch_Amazon-Simple-Notification-Service_645x.png"/>SNS</a></figure><figure id="b6372d43-4aa9-415a-9ed3-7b67fbc62f87" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/MQ%20b6372d434aa9415a9ed37b67fbc62f87.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/MQ%20b6372d434aa9415a9ed37b67fbc62f87/Arch_Amazon-MQ_645x.png"/>MQ</a></figure><figure id="f6e79ed0-4caf-4d5c-a75c-f3370177e041" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Kinesis%20f6e79ed04caf4d5ca75cf3370177e041.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Kinesis%20f6e79ed04caf4d5ca75cf3370177e041/Arch_Amazon-Kinesis_645x.png"/>Kinesis</a></figure><figure id="66b52e68-7211-4528-bf51-82c5e8006b30" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CloudWatch%2066b52e6872114528bf5182c5e8006b30.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CloudWatch%2066b52e6872114528bf5182c5e8006b30/Arch_Amazon-CloudWatch_645x.png"/>CloudWatch</a></figure><figure id="468ffdc5-fbb2-45f1-a38a-3873c15068ab" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/EventBridge%20468ffdc5fbb245f1a38a3873c15068ab.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/EventBridge%20468ffdc5fbb245f1a38a3873c15068ab/Arch_Amazon-EventBridge_645x.png"/>EventBridge</a></figure><figure id="45021780-81a5-4602-96cb-680251155c53" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CloudTrail%204502178081a5460296cb680251155c53.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CloudTrail%204502178081a5460296cb680251155c53/Arch_AWS-CloudTrail_645x.png"/>CloudTrail</a></figure><figure id="561518c3-7fae-4d8a-a429-f48976d2de85" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/X-Ray%20561518c37fae4d8aa429f48976d2de85.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/X-Ray%20561518c37fae4d8aa429f48976d2de85/Arch_AWS-X-Ray_645x.png"/>X-Ray</a></figure><figure id="3d1d3e5f-25f8-40d9-a862-cad849dc30f9" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CodeGuru%203d1d3e5f25f840d9a862cad849dc30f9.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CodeGuru%203d1d3e5f25f840d9a862cad849dc30f9/Arch_Amazon-CodeGuru_645x.png"/>CodeGuru</a></figure><figure id="6c39af5f-db53-4bb5-9d89-fdba306f0497" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Health%20Dashboard%206c39af5fdb534bb59d89fdba306f0497.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Health%20Dashboard%206c39af5fdb534bb59d89fdba306f0497/Arch_AWS-Health-Dashboard_645x.png"/>Health Dashboard</a></figure><figure id="c429dda2-c6db-4a4e-a837-c88c40582c69" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Rekognition%20c429dda2c6db4a4ea837c88c40582c69.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Rekognition%20c429dda2c6db4a4ea837c88c40582c69/Arch_Amazon-Rekognition_645x.png"/>Rekognition</a></figure><figure id="fd473961-d439-4143-b14a-921457250682" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Transcribe%20fd473961d4394143b14a921457250682.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Transcribe%20fd473961d4394143b14a921457250682/Arch_Amazon-Transcribe_645x.png"/>Transcribe</a></figure><figure id="bae57527-d9b9-4862-9739-88dad0775ab2" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Polly%20bae57527d9b94862973988dad0775ab2.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Polly%20bae57527d9b94862973988dad0775ab2/Arch_Amazon-Polly_645x.png"/>Polly</a></figure><figure id="0f9d0b2c-1d0f-486e-b694-ffed82ebd809" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Translate%200f9d0b2c1d0f486eb694ffed82ebd809.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Translate%200f9d0b2c1d0f486eb694ffed82ebd809/Arch_Amazon-Translate_645x.png"/>Translate</a></figure><figure id="b96dcac6-2ae5-4916-ac00-4792fdd15ee0" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Lex%20b96dcac62ae54916ac004792fdd15ee0.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Lex%20b96dcac62ae54916ac004792fdd15ee0/Arch_Amazon-Lex_645x.png"/>Lex</a></figure><figure id="bc6cc893-ddef-44de-8410-010cd5d73576" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Connect%20bc6cc893ddef44de8410010cd5d73576.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Connect%20bc6cc893ddef44de8410010cd5d73576/Arch_Amazon-Connect_645x.png"/>Connect</a></figure><figure id="15b6ae46-7813-4596-969f-183abb358336" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Comprehend%2015b6ae4678134596969f183abb358336.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Comprehend%2015b6ae4678134596969f183abb358336/Arch_Amazon-Comprehend_645x.png"/>Comprehend</a></figure><figure id="974e16fd-142a-46a3-9b71-8b4ee0e36b5a" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/SageMaker%20974e16fd142a46a39b718b4ee0e36b5a.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/SageMaker%20974e16fd142a46a39b718b4ee0e36b5a/Arch_Amazon-SageMaker_645x.png"/>SageMaker</a></figure><figure id="45c343a8-fa88-4b65-a8de-44356a2cc5fa" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Forecast%2045c343a8fa884b65a8de44356a2cc5fa.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Forecast%2045c343a8fa884b65a8de44356a2cc5fa/Arch_Amazon-Forecast_645x.png"/>Forecast</a></figure><figure id="5ad428fe-5a32-426e-9d15-b4d56aa4264a" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Kendra%205ad428fe5a32426e9d15b4d56aa4264a.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Kendra%205ad428fe5a32426e9d15b4d56aa4264a/Arch_Amazon-Kendra_645x.png"/>Kendra</a></figure><figure id="6d4ff507-8a04-4ec9-baca-32eeef96c925" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Personalise%206d4ff5078a044ec9baca32eeef96c925.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Personalise%206d4ff5078a044ec9baca32eeef96c925/Arch_Amazon-Personalize_645x.png"/>Personalise</a></figure><figure id="c94c56eb-beda-4438-96cb-0454360de779" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Textract%20c94c56ebbeda443896cb0454360de779.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Textract%20c94c56ebbeda443896cb0454360de779/Arch_Amazon-Textract_645x.png"/>Textract</a></figure><figure id="fd200003-4fe7-4435-b517-c1187b9a4dab" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/WorkSpaces%20fd2000034fe74435b517c1187b9a4dab.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/WorkSpaces%20fd2000034fe74435b517c1187b9a4dab/Arch_Amazon-WorkSpaces-Family_645x.png"/>WorkSpaces</a></figure><figure id="87db552b-1c97-44be-87da-d15c52d14f7c" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/IoT%20Core%2087db552b1c9744be87dad15c52d14f7c.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/IoT%20Core%2087db552b1c9744be87dad15c52d14f7c/Arch_AWS-IoT-Core_645x.png"/>IoT Core</a></figure><figure id="da21cbbe-7805-4454-ad2d-74b931f31659" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/AppSync%20da21cbbe78054454ad2d74b931f31659.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/AppSync%20da21cbbe78054454ad2d74b931f31659/Arch_AWS-AppSync_645x.png"/>AppSync</a></figure><figure id="fbade267-d835-437c-9913-a03ccb8fc143" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/AppStream%202%200%20fbade267d835437c9913a03ccb8fc143.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/AppStream%202%200%20fbade267d835437c9913a03ccb8fc143/Arch_Amazon-AppStream_645x.png"/>AppStream 2.0</a></figure><figure id="8806cd7e-907a-4051-88af-0e3e20a25959" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Amplify%208806cd7e907a405188af0e3e20a25959.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Amplify%208806cd7e907a405188af0e3e20a25959/Arch_AWS-Amplify_645x.png"/>Amplify</a></figure><figure id="34cc1851-4b86-423f-bde4-16cdbfc14a2d" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Composer%2034cc18514b86423fbde416cdbfc14a2d.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Composer%2034cc18514b86423fbde416cdbfc14a2d/Arch_AWS-Application-Composer_645x.png"/>Application Composer</a></figure><figure id="6e3c97f5-dfc2-4cfc-bdf8-617438ab61d2" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Device%20Farm%206e3c97f5dfc24cfcbdf8617438ab61d2.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Device%20Farm%206e3c97f5dfc24cfcbdf8617438ab61d2/Arch_AWS-Device-Farm_645x.png"/>Device Farm</a></figure><figure id="06b935af-958f-456b-8c06-4e796be2332b" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Backup%2006b935af958f456b8c064e796be2332b.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Backup%2006b935af958f456b8c064e796be2332b/Arch_AWS-Backup_645x.png"/>Backup</a></figure><figure id="d99484c0-1545-4186-a5cb-2738d7380891" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Elastic%20Disaster%20Recovery%20d99484c015454186a5cb2738d7380891.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Elastic%20Disaster%20Recovery%20d99484c015454186a5cb2738d7380891/Arch_AWS-Elastic-Disaster-Recovery_645x.png"/>Elastic Disaster Recovery</a></figure><figure id="1b33378c-1658-472f-a6c6-228eef1c34e2" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/DataSync%201b33378c1658472fa6c6228eef1c34e2.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/DataSync%201b33378c1658472fa6c6228eef1c34e2/Arch_AWS-DataSync_645x.png"/>DataSync</a></figure><figure id="e890fb27-462e-46a9-8d4b-ad7adb9a3767" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Discovery%20Service%20e890fb27462e46a98d4bad7adb9a3767.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Discovery%20Service%20e890fb27462e46a98d4bad7adb9a3767/Arch_AWS-Application-Discovery-Service_645x.png"/>Application Discovery Service</a></figure><figure id="8098927e-85d6-4750-8517-b94cf264b2d8" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Migration%20Service%208098927e85d647508517b94cf264b2d8.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Application%20Migration%20Service%208098927e85d647508517b94cf264b2d8/Arch_AWS-Application-Migration-Service_645x.png"/>Application Migration Service</a></figure><figure id="d60cf284-339f-4ef0-adb8-2c58afe60228" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Migration%20Evaluator%20d60cf284339f4ef0adb82c58afe60228.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Migration%20Evaluator%20d60cf284339f4ef0adb82c58afe60228/Arch_AWS-Migration-Evaluator_645x.png"/>Migration Evaluator</a></figure><figure id="e739df3f-d7ca-4f12-b6d2-107c6a7fdf1f" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Migration%20Hub%20e739df3fd7ca4f12b6d2107c6a7fdf1f.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Migration%20Hub%20e739df3fd7ca4f12b6d2107c6a7fdf1f/Arch_AWS-Migration-Hub_645x.png"/>Migration Hub</a></figure><figure id="d4eea6a8-3772-4fe0-a0d1-4306d0d34f20" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Fault%20Injection%20Simulator%20d4eea6a837724fe0a0d14306d0d34f20.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Fault%20Injection%20Simulator%20d4eea6a837724fe0a0d14306d0d34f20/Arch_AWS-Fault-Injection-Simulator_645x.png"/>Fault Injection Simulator</a></figure><figure id="7aff8ecc-897c-41d8-8ece-040658176e31" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/StepFunctions%207aff8ecc897c41d88ece040658176e31.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/StepFunctions%207aff8ecc897c41d88ece040658176e31/Arch_AWS-Step-Functions_645x.png"/>StepFunctions</a></figure><figure id="fcdf0fcd-3265-4735-871a-117dedde8a3c" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Ground%20Station%20fcdf0fcd32654735871a117dedde8a3c.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Ground%20Station%20fcdf0fcd32654735871a117dedde8a3c/Arch_AWS-Ground-Station_645x.png"/>Ground Station</a></figure><figure id="e354c287-58cd-4e83-8ab5-7e95fba1491a" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Pinpoint%20e354c28758cd4e838ab57e95fba1491a.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Pinpoint%20e354c28758cd4e838ab57e95fba1491a/Arch_Amazon-Pinpoint_645x.png"/>Pinpoint</a></figure><figure id="f4ada601-453e-40c6-a673-f7766a96a449" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Shield%20f4ada601453e40c6a673f7766a96a449.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Shield%20f4ada601453e40c6a673f7766a96a449/Arch_AWS-Shield_645x.png"/>Shield</a></figure><figure id="269cf99f-3488-4bca-82cb-29b4534ce35b" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/WAF%20Web%20Application%20Firewall%20269cf99f34884bca82cb29b4534ce35b.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/WAF%20Web%20Application%20Firewall%20269cf99f34884bca82cb29b4534ce35b/Arch_AWS-WAF_645x.png"/>WAF | Web Application Firewall</a></figure><figure id="cf17c554-cdae-4fd9-a578-26e3353101b1" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Network%20Firewall%20cf17c554cdae4fd9a57826e3353101b1.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Network%20Firewall%20cf17c554cdae4fd9a57826e3353101b1/Arch_AWS-Network-Firewall_645x.png"/>Network Firewall</a></figure><figure id="793bdb42-8073-41f9-844a-b3de78ea31e1" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Firewall%20Manager%20793bdb42807341f9844ab3de78ea31e1.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Firewall%20Manager%20793bdb42807341f9844ab3de78ea31e1/Arch_AWS-Firewall-Manager_645x.png"/>Firewall Manager</a></figure><figure id="9f0bf093-391f-46a3-9608-6d62f6e1b2df" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Penetration%20Testing%209f0bf093391f46a396086d62f6e1b2df.html">Penetration Testing</a></figure><figure id="4e41283b-b832-4063-b508-57987c131a46" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/KSM%20Key%20Management%20Service%204e41283bb8324063b50857987c131a46.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/KSM%20Key%20Management%20Service%204e41283bb8324063b50857987c131a46/Arch_AWS-Key-Management-Service_645x.png"/>KSM | Key Management Service</a></figure><figure id="35eadb40-29b5-492f-974b-ba62b0b4d799" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/CloudHSM%2035eadb4029b5492f974bba62b0b4d799.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/CloudHSM%2035eadb4029b5492f974bba62b0b4d799/Arch_AWS-CloudHSM_645x.png"/>CloudHSM</a></figure><figure id="3e6f3f77-073f-4a2c-b84e-5b28b6d7941f" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Certificate%20Manager%203e6f3f77073f4a2cb84e5b28b6d7941f.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Certificate%20Manager%203e6f3f77073f4a2cb84e5b28b6d7941f/Arch_AWS-Certificate-Manager_645x.png"/>Certificate Manager</a></figure><figure id="18425aaa-342a-4563-b8b6-fdfe5c440ed2" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Secrets%20Manager%2018425aaa342a4563b8b6fdfe5c440ed2.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Secrets%20Manager%2018425aaa342a4563b8b6fdfe5c440ed2/Arch_AWS-Secrets-Manager_645x.png"/>Secrets Manager</a></figure><figure id="51891501-dcaf-4f48-a680-2810623c5384" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Artifact%2051891501dcaf4f48a6802810623c5384.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Artifact%2051891501dcaf4f48a6802810623c5384/Arch_AWS-Artifact_645x.png"/>Artifact</a></figure><figure id="a76e38ff-82c5-45b0-8f8a-7e2887af7690" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/GuardDuty%20a76e38ff82c545b08f8a7e2887af7690.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/GuardDuty%20a76e38ff82c545b08f8a7e2887af7690/Arch_Amazon-GuardDuty_645x.png"/>GuardDuty</a></figure><figure id="eb070437-2b8a-428c-83b2-fa51bf31f850" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Inspector%20eb0704372b8a428c83b2fa51bf31f850.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Inspector%20eb0704372b8a428c83b2fa51bf31f850/Arch_Amazon-Inspector_645x.png"/>Inspector</a></figure><figure id="c0066e0c-b0ec-4a33-9851-08c9a81ebfe2" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Config%20c0066e0cb0ec4a33985108c9a81ebfe2.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Config%20c0066e0cb0ec4a33985108c9a81ebfe2/Arch_AWS-Config_645x.png"/>Config</a></figure><figure id="274e0ce5-b368-4953-baad-bb7e0db3d271" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Macie%20274e0ce5b3684953baadbb7e0db3d271.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Macie%20274e0ce5b3684953baadbb7e0db3d271/Arch_Amazon-Macie_645x.png"/>Macie</a></figure><figure id="448078d9-e3f2-4b56-afa7-6d72d91a63e4" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Security%20Hub%20448078d9e3f24b56afa76d72d91a63e4.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Security%20Hub%20448078d9e3f24b56afa76d72d91a63e4/Arch_AWS-Security-Hub_645x.png"/>Security Hub</a></figure><figure id="a03a3216-8f81-42f4-91d7-7c1288a3b277" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Detective%20a03a32168f8142f491d77c1288a3b277.html"><img class="icon" src="Wiki%209e84cd97836740159b47a68a2b065c28/Detective%20a03a32168f8142f491d77c1288a3b277/Arch_Amazon-Detective_645x.png"/>Detective</a></figure><figure id="e16600a2-9314-4c1a-85cd-e6f29660372c" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/AWS%20Abuse%20e16600a293144c1a85cde6f29660372c.html">AWS Abuse</a></figure><figure id="7aede772-f445-4612-9961-1776d1a95ead" class="link-to-page"><a href="Wiki%209e84cd97836740159b47a68a2b065c28/Root%20User%20Privileges%207aede772f445461299611776d1a95ead.html">Root User Privileges</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
